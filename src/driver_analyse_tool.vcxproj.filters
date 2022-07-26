@@ -32,12 +32,21 @@
     <ClCompile Include="user.cpp">
       <Filter>Source Files\user</Filter>
     </ClCompile>
+    <ClCompile Include="module.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="utils.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="slist.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="module.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="util_stru.hh">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>

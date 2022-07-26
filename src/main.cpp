@@ -9,10 +9,15 @@
 #include"utils.h"
 
 void user_main(PDRIVER_OBJECT drv, PUNICODE_STRING reg);
+
+void unload(PDRIVER_OBJECT drv) {
+	print("[+]driver unload...\n");
+}
+
 extern "C" NTSTATUS DriverEntry(PDRIVER_OBJECT drv, PUNICODE_STRING reg) {
 
-	user_main(drv,reg);
-
 	print("[+]driver load...\n");
+	drv->DriverUnload = unload;
+	user_main(drv,reg);
 	return STATUS_SUCCESS;
 }

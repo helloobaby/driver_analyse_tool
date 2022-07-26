@@ -168,12 +168,15 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="module.cpp" />
     <ClCompile Include="user.cpp" />
     <ClCompile Include="utils.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="module.h" />
     <ClInclude Include="slist.h" />
     <ClInclude Include="utils.h" />
+    <ClInclude Include="util_stru.hh" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
