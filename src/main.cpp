@@ -11,12 +11,7 @@
 void user_main(PDRIVER_OBJECT drv, PUNICODE_STRING reg);
 extern "C" NTSTATUS DriverEntry(PDRIVER_OBJECT drv, PUNICODE_STRING reg) {
 
-
-
 	user_main(drv,reg);
-
-
-
 
 	print("[+]driver load...\n");
 	return STATUS_SUCCESS;
