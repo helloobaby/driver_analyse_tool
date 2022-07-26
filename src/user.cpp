@@ -14,3 +14,4 @@
 void user_main(PDRIVER_OBJECT drv, PUNICODE_STRING reg) {
 
 }
+dasd
