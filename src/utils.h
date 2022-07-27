@@ -17,12 +17,17 @@ extern "C" {
 }
 
 
-
 template<typename... types>
 __inline void print(types... args)
 {
 	DbgPrintEx(DPFLTR_DEFAULT_ID, DPFLTR_ERROR_LEVEL, args...);
 }
+
+template<typename T>
+T get_data(PVOID start) {
+    return *(T*)start;
+}
+
 
 template <typename T>
 using travelFuncType = T (*)(PLIST_ENTRY ListEntry);

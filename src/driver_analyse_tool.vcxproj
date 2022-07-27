@@ -172,11 +172,13 @@
     <ClCompile Include="dependencies\kernel-hook\khook\hk.c" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="module.cpp" />
+    <ClCompile Include="pe.cpp" />
     <ClCompile Include="user.cpp" />
     <ClCompile Include="utils.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="module.h" />
+    <ClInclude Include="pe.h" />
     <ClInclude Include="slist.h" />
     <ClInclude Include="utils.h" />
     <ClInclude Include="util_stru.hh" />
