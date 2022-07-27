@@ -2,7 +2,6 @@
 
 template<typename T>
 T kmodule::get_module(travelFuncType<T> Function) {
-
 	return travelsee_list(&PsLoadedModuleList, Function);
 }
 

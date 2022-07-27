@@ -167,6 +167,9 @@
     <FilesToPackage Include="$(TargetPath)" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="dependencies\kernel-hook\khook\hde\hde32.cpp" />
+    <ClCompile Include="dependencies\kernel-hook\khook\hde\hde64.cpp" />
+    <ClCompile Include="dependencies\kernel-hook\khook\hk.c" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="module.cpp" />
     <ClCompile Include="user.cpp" />

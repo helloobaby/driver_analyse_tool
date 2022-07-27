@@ -12,6 +12,12 @@
 #define INTERNAL		//不要自己调用这种函数
 #define HARDCODE_OFFSET	//系统相关的偏移(硬编码)
 
+extern "C" {
+    void* RtlFindExportedRoutineByName(void*, const char*);         //win10之后才有的导出函数
+}
+
+
+
 template<typename... types>
 __inline void print(types... args)
 {
@@ -30,4 +36,10 @@ T travelsee_list(PLIST_ENTRY ListHead, travelFuncType<T> Function) {
         if(result != 0)
             return result;
     }
+}
+
+
+
+inline PVOID GetDriverExportRoutine(void* DriverBase,const char* FunctionName) {
+    return RtlFindExportedRoutineByName(DriverBase, FunctionName);
 }

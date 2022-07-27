@@ -44,8 +44,16 @@ using travelFuncType = T(*)(PLIST_ENTRY ListEntry);
 
 class kmodule {
 public:
+
+	//
+	//通过遍历PsLoadedModuleList获得内核模块的基地址
+	//
 	template<typename T>
 	static T get_module(travelFuncType<T> Function);
+
+
+
+
 
 
 
