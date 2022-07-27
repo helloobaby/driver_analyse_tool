@@ -47,6 +47,9 @@
     <ClCompile Include="pe.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="exclusivity.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="utils.h">
@@ -62,6 +65,9 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="pe.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="exclusivity.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>

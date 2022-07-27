@@ -170,6 +170,7 @@
     <ClCompile Include="dependencies\kernel-hook\khook\hde\hde32.cpp" />
     <ClCompile Include="dependencies\kernel-hook\khook\hde\hde64.cpp" />
     <ClCompile Include="dependencies\kernel-hook\khook\hk.c" />
+    <ClCompile Include="exclusivity.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="module.cpp" />
     <ClCompile Include="pe.cpp" />
@@ -177,6 +178,7 @@
     <ClCompile Include="utils.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="exclusivity.h" />
     <ClInclude Include="module.h" />
     <ClInclude Include="pe.h" />
     <ClInclude Include="slist.h" />
