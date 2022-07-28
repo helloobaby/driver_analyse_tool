@@ -37,7 +37,7 @@ IMAGE_SECTION_HEADER* pe64::get_section(const char* section_name) {
 			}
 		}
 	}
-
+	return nullptr;
 }
 
 void pe64::print_dos_headers() {

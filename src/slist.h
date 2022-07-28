@@ -11,7 +11,7 @@
 class slist
 {
 public:
-	void InitSlist() { 
+	void InitSlist() {  //construct
 		Head = (PSLIST_HEADER)ExAllocatePoolWithTag(NonPagedPool, sizeof(SLIST_HEADER), 'tsil');
 		if (!Head)
 			KeBugCheck((ULONG)STATUS_INSUFFICIENT_RESOURCES);

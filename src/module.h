@@ -6,6 +6,7 @@
 --*/
 
 #pragma once
+#pragma warning (disable : 4201)
 #include<ntifs.h>
 #include<ntddk.h>
 #include<wdm.h>
