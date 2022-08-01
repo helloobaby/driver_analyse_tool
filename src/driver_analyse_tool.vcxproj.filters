@@ -53,6 +53,9 @@
     <ClCompile Include="hook_helper.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="us_util.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="utils.h">
@@ -74,6 +77,9 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="hook_helper.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="us_util.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
