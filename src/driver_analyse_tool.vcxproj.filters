@@ -16,6 +16,9 @@
     <Filter Include="Source Files\user">
       <UniqueIdentifier>{40cb8e03-3eff-4aed-81a2-150195a0360f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\special_system">
+      <UniqueIdentifier>{a1bc82e3-9e02-4d25-8f1a-2e344bd788b0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Inf Include="driver_analyse_tool.inf">
@@ -81,6 +84,12 @@
     </ClInclude>
     <ClInclude Include="us_util.h">
       <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="special_system\special_system.h">
+      <Filter>Source Files\special_system</Filter>
+    </ClInclude>
+    <ClInclude Include="special_system\wrap_call.h">
+      <Filter>Source Files\special_system</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

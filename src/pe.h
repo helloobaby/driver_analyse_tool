@@ -31,13 +31,6 @@ public:
 	IMAGE_SECTION_HEADER* get_section(const char* section_name);
 	void print_sections();
 
-	//根据PE头中存储的内容dump把驱动dump下来,内存中的PE头很多时候都是不可靠的。
-	//就算定位磁盘中的PE头,如果原来驱动有壳,磁盘中的PE头也不可靠。
-	bool dump_driver_relay_pe_header();
-
-	bool dump_driver_relay_page_attibute();
-
-
 
 
 
