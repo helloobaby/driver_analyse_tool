@@ -66,3 +66,4 @@ void pe64::print_nt_headers() {
 void pe64::print_sections() {
 	get_section(nullptr);
 }
+

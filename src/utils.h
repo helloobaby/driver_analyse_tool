@@ -18,6 +18,12 @@ extern "C" {
 
     NTKERNELAPI
         UCHAR* PsGetProcessImageFileName(__in PEPROCESS Process);
+
+    NTSYSAPI
+        PVOID RtlPcToFileHeader(
+            PVOID PcValue,
+            PVOID* BaseOfImage
+        );
 }
 
 

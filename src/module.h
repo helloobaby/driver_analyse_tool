@@ -19,7 +19,7 @@
 #define HARDCODE_OFFSET	//系统相关的偏移(硬编码)
 
 extern "C" {
-	extern LIST_ENTRY PsLoadedModuleList;
+	extern PLIST_ENTRY PsLoadedModuleList;
 	extern ERESOURCE PsLoadedModuleResource;
 }
 

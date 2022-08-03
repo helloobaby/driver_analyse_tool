@@ -185,6 +185,8 @@
     <ClInclude Include="module.h" />
     <ClInclude Include="pe.h" />
     <ClInclude Include="slist.h" />
+    <ClInclude Include="special_system\special_system.h" />
+    <ClInclude Include="special_system\wrap_call.h" />
     <ClInclude Include="us_util.h" />
     <ClInclude Include="utils.h" />
     <ClInclude Include="util_stru.hh" />

@@ -31,6 +31,12 @@ public:
 	IMAGE_SECTION_HEADER* get_section(const char* section_name);
 	void print_sections();
 
+
+
+
+
+
+
 private:
 	PVOID _image_base;
 };
