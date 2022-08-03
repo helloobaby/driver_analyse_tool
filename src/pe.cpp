@@ -66,3 +66,13 @@ void pe64::print_nt_headers() {
 void pe64::print_sections() {
 	get_section(nullptr);
 }
+
+bool pe64::dump_driver_relay_page_attibute() {
+
+	//通常内存中的代码段都是基地址偏移0x1000
+	void* assume_text_seg = (char*)this->_image_base + 0x1000;
+
+	//判断一下页属性是不是可执行的,不是的话返回false
+
+
+}
