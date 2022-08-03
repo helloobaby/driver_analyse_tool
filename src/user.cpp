@@ -12,6 +12,12 @@
 #include "module.h"
 
 
+void unload(PDRIVER_OBJECT drv) {
+    UNREFERENCED_PARAMETER(drv);
+    print("[+]driver unload...\n");
+    return;
+}
+
 PVOID isCsAgentModule(PLIST_ENTRY ListEntry) {
 
     static UNICODE_STRING CsAgent = RTL_CONSTANT_STRING(L"csagent.sys");
@@ -26,6 +32,8 @@ PVOID isCsAgentModule(PLIST_ENTRY ListEntry) {
 
 
 void user_main(PDRIVER_OBJECT drv, PUNICODE_STRING reg) {
+    UNREFERENCED_PARAMETER(drv);
+    UNREFERENCED_PARAMETER(reg);
 
     static PVOID CsAgentBase = kmodule::get_module<PVOID>(isCsAgentModule);
 
