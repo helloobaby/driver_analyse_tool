@@ -1,6 +1,6 @@
 #include "pe.h"
 
-pe64::pe64(PVOID ImageBase) {
+pe64::pe64(PVOID ImageBase, bool isInMemory) {
 	this->_image_base = ImageBase;
 }
 

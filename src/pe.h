@@ -18,7 +18,8 @@ PIMAGE_NT_HEADERS NTAPI RtlImageNtHeader(
 class pe64
 {
 public:
-	pe64(PVOID ImageBase);
+	//@isInMemory -> 表明当前是内存中的文件还是磁盘上的文件
+	pe64(PVOID ImageBase,bool isInMemory = true);	
 
 	bool check_image();
 

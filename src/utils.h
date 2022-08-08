@@ -16,9 +16,6 @@ extern "C" {
     NTKERNELAPI 
         void* RtlFindExportedRoutineByName(void*, const char*);         //win10之后才有的导出函数
 
-    NTKERNELAPI
-        UCHAR* PsGetProcessImageFileName(__in PEPROCESS Process);
-
     NTSYSAPI
         PVOID RtlPcToFileHeader(
             PVOID PcValue,
