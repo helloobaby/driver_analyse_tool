@@ -32,12 +32,21 @@ public:
 	IMAGE_SECTION_HEADER* get_section(const char* section_name);
 	void print_sections();
 
+	using handler_type = void(*)(IMAGE_SECTION_HEADER*);
+	void processing_sections(handler_type handler);
 
+	IMAGE_DATA_DIRECTORY* get_data_dir(UINT32 id);
 
+	IMAGE_IMPORT_DESCRIPTOR* get_import_descriptor();
+	ULONG get_import_descriptor_size();
+	IMAGE_EXPORT_DIRECTORY* get_export_descriptor();
+	ULONG get_export_descriptor_size();
 
-
-
+	PVOID RVAtoP(PVOID pBase, ULONG  rva);
+	template<typename T = PVOID>
+	T get_image_base() { return (T)_image_base; }
 
 private:
 	PVOID _image_base;
+	bool _in_mem;
 };

@@ -103,5 +103,14 @@
     <ClInclude Include="dependencies\wdmlib\inc\wlmacro.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="special_system\ntkrnl_symbol.h">
+      <Filter>Source Files\special_system</Filter>
+    </ClInclude>
+    <ClInclude Include="special_system\fltmgr_symbol.h">
+      <Filter>Source Files\special_system</Filter>
+    </ClInclude>
+    <ClInclude Include="special_system\ci_symbol.h">
+      <Filter>Source Files\special_system</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

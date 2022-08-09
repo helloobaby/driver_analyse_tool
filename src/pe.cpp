@@ -2,6 +2,39 @@
 
 pe64::pe64(PVOID ImageBase, bool isInMemory) {
 	this->_image_base = ImageBase;
+	this->_in_mem = isInMemory;
+}
+
+//windows/core/ntuser/client/extract.c
+PVOID pe64::RVAtoP(PVOID pBase,ULONG  rva)
+{
+	IMAGE_DOS_HEADER*             pmz;
+	IMAGE_NT_HEADERS* ppe;
+	IMAGE_SECTION_HEADER* pSection; // section table
+	int                  i;
+	ULONG                size;
+
+	pmz = (IMAGE_DOS_HEADER*)pBase;
+	ppe = (IMAGE_NT_HEADERS*)((char*)pBase + pmz->e_lfanew);
+
+	/*
+	 * Scan the section table looking for the RVA
+	 */
+	pSection = IMAGE_FIRST_SECTION(ppe);
+
+	for (i = 0; i < ppe->FileHeader.NumberOfSections; i++) {
+
+		size = pSection[i].Misc.VirtualSize ?
+			pSection[i].Misc.VirtualSize : pSection[i].SizeOfRawData;
+
+		if (rva >= pSection[i].VirtualAddress &&
+			rva < pSection[i].VirtualAddress + size) {
+
+			return (char*)pBase + pSection[i].PointerToRawData + (rva - pSection[i].VirtualAddress);
+		}
+	}
+
+	return NULL;
 }
 
 bool pe64::check_image() {
@@ -33,7 +66,7 @@ IMAGE_SECTION_HEADER* pe64::get_section(const char* section_name) {
 		}
 		else {
 			if (!strcmp(section_name, (const char*)section_header[i].Name)) {
-				return section_header;
+				return &section_header[i];
 			}
 		}
 	}
@@ -67,3 +100,54 @@ void pe64::print_sections() {
 	get_section(nullptr);
 }
 
+void pe64::processing_sections(handler_type handler) {
+	USHORT section_count = get_nt_headers()->FileHeader.NumberOfSections;
+	IMAGE_SECTION_HEADER* section_header = IMAGE_FIRST_SECTION(get_nt_headers());
+	for (int i = 0; i < section_count; i++) {
+		handler(&section_header[i]);
+	}
+	return;
+}
+
+IMAGE_DATA_DIRECTORY* pe64::get_data_dir(UINT32 id) {
+	return &get_nt_headers()->OptionalHeader.DataDirectory[id];
+}
+
+
+//导入表
+
+IMAGE_IMPORT_DESCRIPTOR* pe64::get_import_descriptor()
+{
+	ULONG Rva = get_nt_headers()->OptionalHeader.DataDirectory[IMAGE_DIRECTORY_ENTRY_IMPORT].VirtualAddress;
+	if (this->_in_mem) {
+		return (IMAGE_IMPORT_DESCRIPTOR*)(get_image_base<char*>() + Rva);
+	}
+	else {
+		return (IMAGE_IMPORT_DESCRIPTOR*)(get_image_base<char*>() + (ULONG64)RVAtoP(get_image_base(),Rva));
+	}
+}
+
+ULONG pe64::get_import_descriptor_size() {
+	return get_nt_headers()->OptionalHeader.DataDirectory[IMAGE_DIRECTORY_ENTRY_IMPORT].Size;
+}
+
+
+//导出表
+
+IMAGE_EXPORT_DIRECTORY* pe64::get_export_descriptor() {
+	ULONG Rva = get_nt_headers()->OptionalHeader.DataDirectory[IMAGE_DIRECTORY_ENTRY_EXPORT].VirtualAddress;
+	if (this->_in_mem) {
+		return (IMAGE_EXPORT_DIRECTORY*)(get_image_base<char*>() + Rva);
+	}
+	else {
+		return (IMAGE_EXPORT_DIRECTORY*)(get_image_base<char*>() + (ULONG64)RVAtoP(get_image_base(), Rva));
+	}
+
+}
+
+ULONG pe64::get_export_descriptor_size() {
+	return get_nt_headers()->OptionalHeader.DataDirectory[IMAGE_DIRECTORY_ENTRY_EXPORT].Size;
+}
+
+
+//

@@ -21,6 +21,10 @@ extern "C" {
             PVOID PcValue,
             PVOID* BaseOfImage
         );
+
+    NTKERNELAPI
+        UCHAR* PsGetProcessImageFileName(__in PEPROCESS Process);
+
 }
 
 
