@@ -32,6 +32,7 @@ public:
 	IMAGE_SECTION_HEADER* get_section(const char* section_name);
 	void print_sections();
 
+<<<<<<< HEAD
 	using handler_type = void(*)(IMAGE_SECTION_HEADER*);
 	void processing_sections(handler_type handler);
 
@@ -45,6 +46,13 @@ public:
 	PVOID RVAtoP(PVOID pBase, ULONG  rva);
 	template<typename T = PVOID>
 	T get_image_base() { return (T)_image_base; }
+=======
+
+
+
+
+
+>>>>>>> c3ff77a04363fb5b1b9f56a37155233c0c5f6f65
 
 private:
 	PVOID _image_base;
