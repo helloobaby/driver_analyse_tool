@@ -100,7 +100,6 @@ void pe64::print_sections() {
 	get_section(nullptr);
 }
 
-<<<<<<< HEAD
 void pe64::processing_sections(handler_type handler) {
 	USHORT section_count = get_nt_headers()->FileHeader.NumberOfSections;
 	IMAGE_SECTION_HEADER* section_header = IMAGE_FIRST_SECTION(get_nt_headers());
@@ -152,5 +151,4 @@ ULONG pe64::get_export_descriptor_size() {
 
 
 //
-=======
->>>>>>> c3ff77a04363fb5b1b9f56a37155233c0c5f6f65
+
