@@ -91,6 +91,5 @@
     <ClInclude Include="special_system\wrap_call.h">
       <Filter>Source Files\special_system</Filter>
     </ClInclude>
-    <ClInclude Include="1.h" />
   </ItemGroup>
 </Project>
